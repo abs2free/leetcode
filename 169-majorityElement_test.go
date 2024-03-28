@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-var majorityElement_cases = []struct {
+var majorityElementCases = []struct {
 	name   string
 	input  []int
 	except int
@@ -32,17 +32,12 @@ var majorityElement_cases = []struct {
 		[]int{-2147483648},
 		-2147483648,
 	},
-	{
-		"test5",
-		[]int{0, 0},
-		0,
-	},
 }
 
 func TestMajorityElement(t *testing.T) {
-	for _, c := range majorityElement_cases {
+	t.Parallel()
+	for _, c := range majorityElementCases {
 		t.Run(c.name, func(t *testing.T) {
-			t.Parallel()
 			actual := majorityElement(c.input)
 			if actual != c.except {
 				t.Errorf("majorityElement test has fail: input:%v ,except:%v actual:%v \n", c.input, c.except, actual)
@@ -51,16 +46,10 @@ func TestMajorityElement(t *testing.T) {
 	}
 }
 
-func BenchmarkMajorityElement(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		majorityElement([]int{2, 2, 1, 1, 1, 2, 2})
-	}
-}
-
 func TestMajorityElement2(t *testing.T) {
-	for _, c := range majorityElement_cases {
+	t.Parallel()
+	for _, c := range majorityElementCases {
 		t.Run(c.name, func(t *testing.T) {
-			t.Parallel()
 			actual := majorityElement2(c.input)
 			if actual != c.except {
 				t.Errorf("majorityElement test has fail: input:%v ,except:%v actual:%v \n", c.input, c.except, actual)

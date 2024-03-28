@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-var longestCommonPrefix_cases = []struct {
+var longestCommonPrefixCases = []struct {
 	name   string
 	input  []string
 	except string
@@ -30,9 +30,9 @@ var longestCommonPrefix_cases = []struct {
 }
 
 func TestLongestCommonPrefix(t *testing.T) {
-	for _, c := range longestCommonPrefix_cases {
+	t.Parallel()
+	for _, c := range longestCommonPrefixCases {
 		t.Run(c.name, func(t *testing.T) {
-			t.Parallel()
 			actual := longestCommonPrefix(c.input)
 			if actual != c.except {
 				t.Errorf("longestCommonPrefix test has fail: input:%v ,except:%v, actual:%v \n", c.input, c.except, actual)
@@ -41,11 +41,11 @@ func TestLongestCommonPrefix(t *testing.T) {
 	}
 }
 
-func TestLongestCommonPrefix_2(t *testing.T) {
-	for _, c := range longestCommonPrefix_cases {
+func TestLongestCommonPrefix2(t *testing.T) {
+	t.Parallel()
+	for _, c := range longestCommonPrefixCases {
 		t.Run(c.name, func(t *testing.T) {
-			t.Parallel()
-			actual := longestCommonPrefix_2(c.input)
+			actual := longestCommonPrefix2(c.input)
 			if actual != c.except {
 				t.Errorf("longestCommonPrefix test has fail: input:%v ,except:%v, actual:%v \n", c.input, c.except, actual)
 			}
