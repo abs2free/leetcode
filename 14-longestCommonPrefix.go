@@ -45,7 +45,6 @@ Loop:
 				continue
 			}
 			if prefix != c {
-				prefix = ""
 				break Loop
 			}
 
