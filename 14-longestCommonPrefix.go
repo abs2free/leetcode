@@ -71,3 +71,27 @@ func longestCommonPrefix2(strs []string) string {
 	}
 	return prefix
 }
+
+func longestCommonPrefix3(strs []string) string {
+	minLen := 100
+	for _, str := range strs {
+		if minLen > len(str) {
+			minLen = len(str)
+		}
+	}
+
+	var result []byte
+Loop:
+	for i := 0; i < minLen; i++ {
+		prefix := strs[0][i]
+		for j := 1; j < len(strs); j++ {
+			if prefix != strs[j][i] {
+				break Loop
+			}
+		}
+
+		result = append(result, prefix)
+	}
+
+	return string(result)
+}

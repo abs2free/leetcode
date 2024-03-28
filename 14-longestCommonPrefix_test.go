@@ -52,3 +52,15 @@ func TestLongestCommonPrefix2(t *testing.T) {
 		})
 	}
 }
+
+func TestLongestCommonPrefix3(t *testing.T) {
+	t.Parallel()
+	for _, c := range longestCommonPrefixCases {
+		t.Run(c.name, func(t *testing.T) {
+			actual := longestCommonPrefix3(c.input)
+			if actual != c.except {
+				t.Errorf("longestCommonPrefix test has fail: input:%v ,except:%v, actual:%v \n", c.input, c.except, actual)
+			}
+		})
+	}
+}
