@@ -48,7 +48,7 @@ func TestReverse(t *testing.T) {
 		{
 			"test1",
 			[]int{1, 2, 3, 4, 5, 4},
-			[]int{1, 2, 3, 4, 5, 4},
+			[]int{4, 5, 4, 3, 2, 1},
 		},
 	}
 
@@ -79,7 +79,7 @@ func TestClone(t *testing.T) {
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
 			ls := ints2List(c.input)
-			actual := clone(ls)
+			actual := list2Ints(clone(ls))
 			if !reflect.DeepEqual(actual, c.except) {
 				t.Errorf("TestClone has fail: input:%v ,except:%v actual:%v \n", c.input, c.except, actual)
 			}

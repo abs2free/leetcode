@@ -6,13 +6,39 @@ type ListNode struct {
 }
 
 func ints2List(nums []int) *ListNode {
-	return nil
+	ln := &ListNode{}
+
+	t := ln
+	for _, num := range nums {
+		t.Next = &ListNode{Val: num}
+		t = t.Next
+	}
+	return ln.Next
 }
 
 func reverse(head *ListNode) *ListNode {
-	return nil
+	var pre, curr *ListNode = nil, head
+
+	for curr != nil {
+		nextTmp := curr.Next
+		curr.Next = pre
+		pre = curr
+		curr = nextTmp
+	}
+
+	return pre
 }
 
 func clone(head *ListNode) *ListNode {
-	return nil
+	curr := head
+
+	new := &ListNode{}
+	t := new
+	for curr != nil {
+		t.Next = &ListNode{Val: curr.Val}
+		t = t.Next
+		curr = curr.Next
+	}
+
+	return new.Next
 }
