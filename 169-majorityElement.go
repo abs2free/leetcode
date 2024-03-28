@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 /**
 169.多数元素
 
@@ -37,10 +39,17 @@ func majorityElement(nums []int) int {
 		countMap[v]++
 	}
 
+	result := 0
 	for num, count := range countMap {
 		if count > mid {
-			return num
+			result = num
+			break
 		}
 	}
-	return 0
+	return result
+}
+
+func majorityElement2(nums []int) int {
+	sort.Ints(nums)
+	return nums[len(nums)/2]
 }
