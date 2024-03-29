@@ -35,7 +35,7 @@ func Test$upperName(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			actual := $2(c.input)
 			if actual != c.except {
-				t.Errorf(\"$2 $s  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
+				t.Errorf(\"$2 $2 test  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
 			}
 		})
 	}
