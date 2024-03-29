@@ -8,7 +8,7 @@ package main
 
 *
  */
-func $2(in string) string {
+func $2(s string) string {
     return \"\"
 }" > $1.go;
 
@@ -35,7 +35,7 @@ func Test$upperName(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			actual := $2(c.input)
 			if actual != c.except {
-				t.Errorf(\"$2 $2 test  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
+				t.Errorf(\"$2 %s test  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
 			}
 		})
 	}
