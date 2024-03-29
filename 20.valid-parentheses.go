@@ -43,32 +43,53 @@ func isValidParentheses(s string) bool {
 		']': '[',
 		')': '(',
 	}
-	var stack []rune
+	st := newStack[rune]()
 
 	for _, c := range s {
 		// 如果是左括号，压入栈中
 		if slices.Contains([]rune{'{', '[', '('}, c) {
-			stack = append(stack, c)
+			st.Push(c)
 			continue
 		}
 
 		// 弹出一个元素
-		n := len(stack)
-		if n == 0 {
+		if st.IsEmpty() {
 			return false
 		}
-		get := stack[n-1]
-		stack = stack[:n-1]
 
 		// 匹配元素
 		b, ok := m[c]
 		if !ok {
 			return false
 		}
+		get := st.Pop()
 		if get != b {
 			return false
 		}
 	}
 
-	return len(stack) == 0
+	return st.IsEmpty()
+}
+
+type stack[T any] struct {
+	values []T
+}
+
+func newStack[T any]() *stack[T] {
+	return &stack[T]{}
+}
+
+func (s *stack[T]) IsEmpty() bool {
+	return len(s.values) == 0
+}
+
+func (s *stack[T]) Push(v T) {
+	s.values = append(s.values, v)
+}
+
+func (s *stack[T]) Pop() T {
+	n := len(s.values)
+	v := s.values[n-1]
+	s.values = s.values[:n-1]
+	return v
 }
