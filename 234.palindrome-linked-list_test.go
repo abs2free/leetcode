@@ -72,7 +72,7 @@ var palindromeLinkedListCases = []struct {
 func TestPalindromeLinkedList(t *testing.T) {
 	for _, c := range palindromeLinkedListCases {
 		t.Run(c.name, func(t *testing.T) {
-			actual := isPalindromeLinkedList(Ints2List(c.input))
+			actual := isPalindromeLinkedList(newByInts(c.input))
 			if actual != c.except {
 				t.Errorf("isPalindromeLinkedList test has fail: input:%v ,except:%v actual:%v \n", c.input, c.except, actual)
 			}

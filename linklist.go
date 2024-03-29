@@ -8,7 +8,7 @@ type ListNode struct {
 }
 
 // Ints2List convert []int to List
-func Ints2List(nums []int) *ListNode {
+func newByInts(nums []int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -22,7 +22,7 @@ func Ints2List(nums []int) *ListNode {
 	return l.Next
 }
 
-func List2Ints(l *ListNode) (nums []int) {
+func formatInts(l *ListNode) (nums []int) {
 	tmp := l
 	for tmp != nil {
 		nums = append(nums, tmp.Val)
@@ -38,24 +38,4 @@ func (ln *ListNode) print() {
 		node = node.Next
 	}
 	fmt.Println("")
-}
-
-func compareListNode(l1, l2 *ListNode) bool {
-	if l1 == nil && l2 == nil {
-		return true
-	}
-
-	for l1 != nil && l2 != nil {
-		if l1.Val != l2.Val {
-			return false
-		}
-		l1 = l1.Next
-		l2 = l2.Next
-	}
-
-	if l1 != nil || l2 != nil {
-		return false
-	}
-
-	return true
 }
