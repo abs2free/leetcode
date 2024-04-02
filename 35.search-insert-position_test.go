@@ -55,3 +55,15 @@ func TestSearchInsert(t *testing.T) {
 		})
 	}
 }
+
+func TestSearchInsert2(t *testing.T) {
+	t.Parallel()
+	for _, c := range searchInsertCases {
+		t.Run(c.name, func(t *testing.T) {
+			actual := searchInsert2(c.input.nums, c.input.target)
+			if actual != c.except.one {
+				t.Errorf("searchInsert %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
+			}
+		})
+	}
+}
