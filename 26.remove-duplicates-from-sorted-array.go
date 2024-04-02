@@ -2,6 +2,7 @@
 package main
 
 import (
+	"fmt"
 	"slices"
 )
 
@@ -55,6 +56,8 @@ nums 已按 非严格递增 排列
 func removeDuplicates(nums []int) int {
 	var removeIndex []int
 
+	fmt.Println("=====")
+	fmt.Println(nums)
 	n := len(nums)
 	i := 0
 	j := i + 1
@@ -74,7 +77,7 @@ func removeDuplicates(nums []int) int {
 		}
 	}
 
-	return len(nums)
+	return n - len(removeIndex)
 }
 
 func removeDuplicates2(nums []int) int {

@@ -36,7 +36,8 @@ func TestRemoveDuplicates(t *testing.T) {
 	t.Parallel()
 	for _, c := range removeDuplicatesCases {
 		t.Run(c.name, func(t *testing.T) {
-			actual := removeDuplicates(c.input)
+			in := sliceClone[int](c.input)
+			actual := removeDuplicates(in)
 			if actual != c.except {
 				t.Errorf("removeDuplicates %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}
@@ -48,7 +49,8 @@ func TestRemoveDuplicates2(t *testing.T) {
 	t.Parallel()
 	for _, c := range removeDuplicatesCases {
 		t.Run(c.name, func(t *testing.T) {
-			actual := removeDuplicates2(c.input)
+			in := sliceClone[int](c.input)
+			actual := removeDuplicates2(in)
 			if actual != c.except {
 				t.Errorf("removeDuplicates %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}

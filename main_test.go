@@ -40,3 +40,9 @@ func LinkedListNotEqual(l1, l2 *ListNode) bool {
 
 	return false
 }
+
+func sliceClone[T any](in []T) []T {
+	res := make([]T, len(in))
+	copy(res, in)
+	return res
+}
