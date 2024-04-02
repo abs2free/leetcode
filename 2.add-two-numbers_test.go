@@ -69,8 +69,8 @@ func TestAddTwoNumbers(t *testing.T) {
 	for _, c := range addTwoNumbersCases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := addTwoNumbers(newByInts(c.input.l1), newByInts(c.input.l2))
-			if !equalListNode(newByInts(c.except), actual) {
-				t.Errorf("addTwoNumbers %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, formatInts(actual))
+			if LinkedListNotEqual(newByInts(c.except), actual) {
+				t.Errorf("addTwoNumbers %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, format2Ints(actual))
 			}
 		})
 	}

@@ -7,7 +7,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// Ints2List convert []int to List
+// newByInts convert []int to List
 func newByInts(nums []int) *ListNode {
 	if len(nums) == 0 {
 		return nil
@@ -22,7 +22,7 @@ func newByInts(nums []int) *ListNode {
 	return l.Next
 }
 
-func formatInts(l *ListNode) (nums []int) {
+func format2Ints(l *ListNode) (nums []int) {
 	tmp := l
 	for tmp != nil {
 		nums = append(nums, tmp.Val)

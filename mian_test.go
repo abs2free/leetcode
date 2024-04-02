@@ -4,6 +4,10 @@ import (
 	"golang.org/x/exp/slices"
 )
 
+func IntsNotEqual(n1, n2 []int) bool {
+	return !equalInts(n1, n2)
+}
+
 func equalInts(n1, n2 []int) bool {
 	if len(n1) != len(n2) {
 		return false
@@ -19,6 +23,10 @@ func equalInts(n1, n2 []int) bool {
 	}
 
 	return true
+}
+
+func LinkedListNotEqual(l1, l2 *ListNode) bool {
+	return !equalListNode(l1, l2)
 }
 
 func equalListNode(l1, l2 *ListNode) bool {
