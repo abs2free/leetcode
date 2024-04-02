@@ -25,8 +25,7 @@ var $2Cases = []struct {
 	input  string
 	except string
 }{
-	{
-	},
+
 }
 
 func Test$upperName(t *testing.T) {

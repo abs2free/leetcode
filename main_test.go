@@ -5,12 +5,8 @@ import (
 )
 
 func IntsNotEqual(n1, n2 []int) bool {
-	return !equalInts(n1, n2)
-}
-
-func equalInts(n1, n2 []int) bool {
 	if len(n1) != len(n2) {
-		return false
+		return true
 	}
 
 	slices.Sort(n1)
@@ -18,33 +14,29 @@ func equalInts(n1, n2 []int) bool {
 
 	for i, n := range n1 {
 		if n != n2[i] {
-			return false
+			return true
 		}
 	}
 
-	return true
+	return false
 }
 
 func LinkedListNotEqual(l1, l2 *ListNode) bool {
-	return !equalListNode(l1, l2)
-}
-
-func equalListNode(l1, l2 *ListNode) bool {
 	if l1 == nil && l2 == nil {
-		return true
+		return false
 	}
 
 	for l1 != nil && l2 != nil {
 		if l1.Val != l2.Val {
-			return false
+			return true
 		}
 		l1 = l1.Next
 		l2 = l2.Next
 	}
 
 	if l1 != nil || l2 != nil {
-		return false
+		return true
 	}
 
-	return true
+	return false
 }
