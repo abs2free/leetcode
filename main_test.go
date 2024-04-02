@@ -4,7 +4,7 @@ import (
 	"golang.org/x/exp/slices"
 )
 
-func IntsNotEqual(n1, n2 []int) bool {
+func intsNotEqual(n1, n2 []int) bool {
 	if len(n1) != len(n2) {
 		return true
 	}
@@ -21,7 +21,7 @@ func IntsNotEqual(n1, n2 []int) bool {
 	return false
 }
 
-func LinkedListNotEqual(l1, l2 *ListNode) bool {
+func listNodeNotEqual(l1, l2 *ListNode) bool {
 	if l1 == nil && l2 == nil {
 		return false
 	}

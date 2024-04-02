@@ -38,7 +38,7 @@ func TestPlusOne(t *testing.T) {
 	for _, c := range plusOneCases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := plusOne(c.input)
-			if IntsNotEqual(actual, c.except) {
+			if intsNotEqual(actual, c.except) {
 				t.Errorf("plusOne %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}
 		})

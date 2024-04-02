@@ -65,9 +65,9 @@ func TestMergeTwoLists(t *testing.T) {
 	t.Parallel()
 	for _, c := range mergeTwoListsCases {
 		t.Run(c.name, func(t *testing.T) {
-			actual := mergeTwoLists(newByInts(c.input.list1), newByInts(c.input.list2))
-			if LinkedListNotEqual(actual, newByInts(c.except)) {
-				t.Errorf("mergeTwoLists %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, format2Ints(actual))
+			actual := mergeTwoLists(Ints2ListNode(c.input.list1), Ints2ListNode(c.input.list2))
+			if listNodeNotEqual(actual, Ints2ListNode(c.except)) {
+				t.Errorf("mergeTwoLists %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, listNode2Ints(actual))
 			}
 		})
 	}

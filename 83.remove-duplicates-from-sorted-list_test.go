@@ -31,9 +31,9 @@ func TestDeleteDuplicates(t *testing.T) {
 	t.Parallel()
 	for _, c := range deleteDuplicatesCases {
 		t.Run(c.name, func(t *testing.T) {
-			actual := deleteDuplicates(newByInts(c.input))
-			if LinkedListNotEqual(actual, newByInts(c.except)) {
-				t.Errorf("deleteDuplicates %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, format2Ints(actual))
+			actual := deleteDuplicates(Ints2ListNode(c.input))
+			if listNodeNotEqual(actual, Ints2ListNode(c.except)) {
+				t.Errorf("deleteDuplicates %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, listNode2Ints(actual))
 			}
 		})
 	}
