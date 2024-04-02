@@ -36,6 +36,11 @@ var addBinaryCases = []struct {
 		addBinaryInput{"1010", "1011"},
 		"10101",
 	},
+	{
+		"test5",
+		addBinaryInput{"100", "110010"},
+		"110110",
+	},
 }
 
 func TestAddBinary(t *testing.T) {

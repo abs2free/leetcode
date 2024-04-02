@@ -87,7 +87,7 @@ func addBinary(a string, b string) string {
 				carry = true
 			}
 		} else {
-			ans = a[i]
+			ans = b[j]
 		}
 
 		res = string(ans) + res
