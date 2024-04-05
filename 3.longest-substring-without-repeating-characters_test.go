@@ -55,3 +55,15 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 		})
 	}
 }
+
+func TestLengthOfLongestSubstring2(t *testing.T) {
+	t.Parallel()
+	for _, c := range lengthOfLongestSubstringCases {
+		t.Run(c.name, func(t *testing.T) {
+			actual := lengthOfLongestSubstring2(c.input.s)
+			if actual != c.except.one {
+				t.Errorf("lengthOfLongestSubstring %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except.one, actual)
+			}
+		})
+	}
+}

@@ -41,11 +41,11 @@ func isPalindrome(x int) bool {
 		return false
 	}
 
-	var new int
+	var newX int
 	old := x
 	for {
 		i := old % 10
-		new = new*10 + i
+		newX = newX*10 + i
 
 		old = old / 10
 		if old == 0 {
@@ -53,7 +53,7 @@ func isPalindrome(x int) bool {
 		}
 	}
 
-	return x == new
+	return x == newX
 }
 
 func isPalindromeString(x int) bool {

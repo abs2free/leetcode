@@ -47,3 +47,26 @@ func lengthOfLongestSubstring(s string) int {
 	}
 	return l
 }
+
+func lengthOfLongestSubstring2(s string) int {
+	longestSubLen := 0
+	charMap := make(map[byte]bool)
+
+	start := 0
+	for end := range s {
+		char := s[end]
+
+		if !charMap[char] {
+			charMap[char] = true
+			longestSubLen = max(longestSubLen, end-start+1)
+		} else {
+			for charMap[char] {
+				charMap[s[start]] = false
+				start++
+			}
+			charMap[char] = true
+		}
+	}
+
+	return longestSubLen
+}
