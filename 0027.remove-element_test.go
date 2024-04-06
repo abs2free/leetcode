@@ -93,3 +93,14 @@ func TestRemoveElement3(t *testing.T) {
 		})
 	}
 }
+
+func TestRemoveElement4(t *testing.T) {
+	for _, c := range removeElementCases {
+		t.Run(c.name, func(t *testing.T) {
+			actual := removeElement4(c.input.one, c.input.two)
+			if actual != c.except.one {
+				t.Errorf("removeElement %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
+			}
+		})
+	}
+}

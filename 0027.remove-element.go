@@ -80,6 +80,20 @@ func removeElement2(nums []int, val int) int {
 	return left
 }
 
+func removeElement4(nums []int, val int) int {
+	left := 0
+	right := 0
+	n := len(nums)
+	for right < n {
+		if nums[right] != val {
+			nums[left] = nums[right]
+			left++
+		}
+		right++
+	}
+	return left
+}
+
 func removeElement3(nums []int, val int) int {
 	left := 0
 	right := len(nums)
