@@ -52,12 +52,12 @@ func removeElement(nums []int, val int) int {
 	n := len(nums)
 	slow := 0
 	fast := 0
-	for slow < n && fast < n {
+	for slow < n {
 		for fast < n && nums[fast] == val {
 			fast++
 		}
 		if fast >= n {
-			return slow
+			break
 		}
 		if nums[slow] == val {
 			nums[slow], nums[fast] = nums[fast], nums[slow]
