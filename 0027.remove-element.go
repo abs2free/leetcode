@@ -50,34 +50,23 @@ int len = removeElement(nums, val);
 */
 func removeElement(nums []int, val int) int {
 	n := len(nums)
-	if n == 0 {
-		return 0
-	}
-
 	slow := 0
-	for slow < n {
-		fast := slow + 1
+	fast := 0
+	for slow < n && fast < n {
 		for fast < n && nums[fast] == val {
 			fast++
 		}
 		if fast >= n {
-			break
+			return slow
 		}
 		if nums[slow] == val {
 			nums[slow], nums[fast] = nums[fast], nums[slow]
-		} else {
-			slow++
 		}
+		slow++
+		fast++
 	}
 
-	if slow == 0 {
-		if nums[slow] == val {
-			return 0
-		} else {
-			return 1
-		}
-	}
-	return slow + 1
+	return slow
 }
 
 func removeElement2(nums []int, val int) int {

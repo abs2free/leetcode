@@ -55,6 +55,11 @@ var removeElementCases = []struct {
 		para27{[]int{0, 1, 2, 2, 3, 0, 4, 2}, 2},
 		ans27{5},
 	},
+	{
+		"test7",
+		para27{[]int{2}, 3},
+		ans27{1},
+	},
 }
 
 func TestRemoveElement(t *testing.T) {
