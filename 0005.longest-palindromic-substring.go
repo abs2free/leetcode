@@ -59,6 +59,7 @@ func longestPalindrome(s string) string {
 
 	return ans
 }
+
 func isPalindromeSub(s string) bool {
 	left := 0
 	right := len(s) - 1
@@ -71,4 +72,40 @@ func isPalindromeSub(s string) bool {
 	}
 
 	return true
+}
+
+func longestPalindrome2(s string) string {
+	n := len(s)
+	if n == 0 {
+		return s
+	}
+
+	start := 0
+	end := 0
+	expand := func(left, right int) (int, int) {
+		for left >= 0 && right < n {
+			if s[left] != s[right] {
+				break
+			}
+
+			left--
+			right++
+		}
+		return left + 1, right - 1
+	}
+
+	for i := 0; i < n; i++ {
+		l1, r1 := expand(i, i)
+		l2, r2 := expand(i, i+1)
+
+		if r1-l1 > end-start {
+			start, end = l1, r1
+		}
+		if r2-l2 > end-start {
+			start, end = l2, r2
+		}
+
+	}
+
+	return s[start : end+1]
 }
