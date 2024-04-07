@@ -80,8 +80,6 @@ func longestPalindrome2(s string) string {
 		return s
 	}
 
-	start := 0
-	end := 0
 	expand := func(left, right int) (int, int) {
 		for left >= 0 && right < n {
 			if s[left] != s[right] {
@@ -94,6 +92,8 @@ func longestPalindrome2(s string) string {
 		return left + 1, right - 1
 	}
 
+	start := 0
+	end := 0
 	for i := 0; i < n; i++ {
 		l1, r1 := expand(i, i)
 		l2, r2 := expand(i, i+1)
