@@ -21,6 +21,23 @@ func intsNotEqual(n1, n2 []int) bool {
 	return false
 }
 
+func stringsNotEqual(n1, n2 []string) bool {
+	if len(n1) != len(n2) {
+		return true
+	}
+
+	slices.Sort(n1)
+	slices.Sort(n2)
+
+	for i, n := range n1 {
+		if n != n2[i] {
+			return true
+		}
+	}
+
+	return false
+}
+
 func listNodeNotEqual(l1, l2 *ListNode) bool {
 	if l1 == nil && l2 == nil {
 		return false
