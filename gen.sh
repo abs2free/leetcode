@@ -39,7 +39,7 @@ func Test$upperName(t *testing.T) {
 	}
 }
 
-func Test{$upperName}Single(t *testing.T) {
+func Test$upperNameSingle(t *testing.T) {
     c:=$2Cases[0]
     actual := $2(c.input)
     if actual != c.except {
