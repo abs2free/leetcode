@@ -1,6 +1,8 @@
 // package main this is a leetcode
 package main
 
+import "fmt"
+
 /*
 *
 39. 组合总和
@@ -40,12 +42,13 @@ func combinationSum(candidates []int, target int) [][]int {
 	var ans [][]int
 	var comb []int
 
-	var backTracing func(target, idx int)
-	backTracing = func(target, idx int) {
+	var dfs func(target, idx int)
+	dfs = func(target, idx int) {
 		// 终止条件
 		if idx == len(candidates) {
 			return
 		}
+		fmt.Println(target, idx, comb)
 
 		if target == 0 {
 			ans = append(ans, append([]int(nil), comb...))
@@ -53,17 +56,17 @@ func combinationSum(candidates []int, target int) [][]int {
 		}
 
 		// 直接跳过
-		backTracing(target, idx+1)
+		dfs(target, idx+1)
 
 		// 选择当前数
 		if target-candidates[idx] >= 0 {
 			comb = append(comb, candidates[idx])
-			backTracing(target-candidates[idx], idx)
+			dfs(target-candidates[idx], idx)
 			comb = comb[:len(comb)-1]
 		}
 	}
 
-	backTracing(target, 0)
+	dfs(target, 0)
 
 	return ans
 }

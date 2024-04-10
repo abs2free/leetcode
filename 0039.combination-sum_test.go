@@ -47,3 +47,11 @@ func TestCombinationSum(t *testing.T) {
 		})
 	}
 }
+
+func TestCombinationSingle(t *testing.T) {
+	c := combinationSumCases[0]
+	actual := combinationSum(c.input.n, c.input.k)
+	if !reflect.DeepEqual(actual, c.except.one) {
+		t.Errorf("combinationSum %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
+	}
+}

@@ -29,7 +29,6 @@ var $2Cases = []struct {
 }
 
 func Test$upperName(t *testing.T) {
-	t.Parallel()
 	for _, c := range $2Cases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := $2(c.input)
@@ -37,5 +36,13 @@ func Test$upperName(t *testing.T) {
 				t.Errorf(\"$2 %s test  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
 			}
 		})
+	}
+}
+
+func Test{$upperName}Single(t *testing.T) {
+    c:=$2Cases[0]
+    actual := $2(c.input)
+    if actual != c.except {
+        t.Errorf(\"$2 %s test  has fail: input:%v ,except:%v, actual:%v \\\n\", c.name, c.input, c.except, actual)
 	}
 }" > "$1_test.go"
