@@ -1,6 +1,7 @@
 package main
 
 import (
+	"slices"
 	"testing"
 )
 
@@ -63,7 +64,7 @@ func TestTwoSum(t *testing.T) {
 	for _, c := range twoSumCases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := twoSum(c.input.nums, c.input.target)
-			if intsNotEqual(actual, c.except) {
+			if !slices.Equal(actual, c.except) {
 				t.Errorf("twoSum %s has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}
 		})

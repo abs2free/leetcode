@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 var plusOneCases = []struct {
 	name   string
@@ -38,7 +41,7 @@ func TestPlusOne(t *testing.T) {
 	for _, c := range plusOneCases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := plusOne(c.input)
-			if intsNotEqual(actual, c.except) {
+			if !slices.Equal(actual, c.except) {
 				t.Errorf("plusOne %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}
 		})

@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 // para 是参数
 // one 代表第一个参数
@@ -30,7 +33,7 @@ func TestLetterCombinations(t *testing.T) {
 	for _, c := range letterCombinationsCases {
 		t.Run(c.name, func(t *testing.T) {
 			actual := letterCombinations(c.input.s)
-			if stringsNotEqual(actual, c.except.one) {
+			if !slices.Equal(actual, c.except.one) {
 				t.Errorf("letterCombinations %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 			}
 		})
@@ -40,7 +43,7 @@ func TestLetterCombinations(t *testing.T) {
 func TestLetterCombinationsSingle(t *testing.T) {
 	c := letterCombinationsCases[0]
 	actual := letterCombinations(c.input.s)
-	if stringsNotEqual(actual, c.except.one) {
+	if !slices.Equal(actual, c.except.one) {
 		t.Errorf("letterCombinations %s test  has fail: input:%v ,except:%v, actual:%v \n", c.name, c.input, c.except, actual)
 	}
 }
