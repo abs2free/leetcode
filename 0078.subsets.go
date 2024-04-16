@@ -1,8 +1,6 @@
 // package main this is a leetcode
 package main
 
-import "fmt"
-
 /*
 *
 78. 子集
@@ -43,8 +41,6 @@ func subsets(nums []int) [][]int {
 			ans = append(ans, append([]int(nil), comb...))
 			return
 		}
-
-		fmt.Println(idx, comb)
 
 		// 选
 		comb = append(comb, nums[idx])

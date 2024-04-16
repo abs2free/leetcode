@@ -1,8 +1,6 @@
 // package main this is a leetcode
 package main
 
-import "fmt"
-
 /*
 *
 39. 组合总和
@@ -48,7 +46,6 @@ func combinationSum(candidates []int, target int) [][]int {
 		if idx == len(candidates) {
 			return
 		}
-		fmt.Println(target, idx, comb)
 
 		if target == 0 {
 			ans = append(ans, append([]int(nil), comb...))

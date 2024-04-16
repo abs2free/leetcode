@@ -1,8 +1,6 @@
 // package main this is a leetcode
 package main
 
-import "fmt"
-
 /*
 *
 5. 最长回文子串
@@ -46,7 +44,6 @@ func longestPalindrome(s string) string {
 				break
 			}
 			// 找到了一组回文
-			fmt.Println(start, end, ":", s[start:end], isPalindromeSub(s[start:end]), "====")
 			if isPalindromeSub(s[start:end]) {
 				if end-start > l {
 					l = end - start
